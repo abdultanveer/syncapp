@@ -2,4 +2,6 @@
 <resources>
     <string name="enter_nm">नाम दर्ज करें</string>
     <string name="enter_pwd">पास वर्ड दर्ज करें</string>
+    <string name="message">एंड्रॉइड में आपका स्वागत है</string>
+
 </resources>

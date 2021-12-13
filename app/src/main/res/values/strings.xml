@@ -2,4 +2,5 @@
     <string name="app_name">syncapp</string>
     <string name="enter_nm">enter name</string>
     <string name="enter_pwd">enter password</string>
+    <string name="message">welcome to android</string>
 </resources>
