@@ -21,11 +21,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void showToastMessage(View view) {
         //Toast.makeText(this, R.string.message, Toast.LENGTH_SHORT).show();
-       /* Intent mIntent = new Intent(this,HomeActivity.class);
-        startActivity(mIntent);*/
-        String name = nameEditText.getText().toString();
-        Toast.makeText(this, name, Toast.LENGTH_SHORT).show();
 
+        String name = nameEditText.getText().toString();
+        Intent mIntent = new Intent(this,HomeActivity.class);
+        mIntent.putExtra("waterkey",name);
+        startActivity(mIntent);
     }
 
 
