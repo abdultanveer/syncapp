@@ -1,5 +1,6 @@
 package com.abdul.syncapp;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.provider.AlarmClock;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -44,6 +46,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent dialIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:9845098450"));
                 startActivity(dialIntent);
                 break;
+            case R.id.btnContact:
+                Intent hIntent = new Intent(this,HomeActivity.class);
+                startActivityForResult(hIntent,123);
+                break;
         }
 
     }
@@ -56,6 +62,16 @@ public class MainActivity extends AppCompatActivity {
                 .putExtra(AlarmClock.EXTRA_MINUTES, minutes);
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 123 && resultCode == RESULT_OK){
+           String contact =  data.getExtras().getString("con");
+            TextView tvMain = findViewById(R.id.tvMain);
+            tvMain.setText(contact);
         }
     }
 }
