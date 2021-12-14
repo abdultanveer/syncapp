@@ -3,6 +3,7 @@ package com.abdul.syncapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         //Toast.makeText(this, R.string.message, Toast.LENGTH_SHORT).show();
 
         String name = nameEditText.getText().toString();
-        Intent mIntent = new Intent(this,HomeActivity.class);
+        Intent mIntent = new Intent(this,HomeActivity.class); //explicit intent
         mIntent.putExtra("waterkey",name);
         startActivity(mIntent);
     }
@@ -31,5 +32,10 @@ public class MainActivity extends AppCompatActivity {
 
     int add(int fnum, int snum){
         return fnum + snum;
+    }
+
+    public void clickHandler(View view) {
+        Intent dialIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:9845098450"));
+        startActivity(dialIntent);
     }
 }
