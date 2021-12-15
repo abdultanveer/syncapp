@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         Log.w(TAG,"onstart"); //w=warning
-
     }
 
     @Override
@@ -64,13 +63,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    int add(int fnum, int snum){
-        return fnum + snum;
+    void add(int fnum, int snum){
+
+        int d = 90 - 40;
+         d += 20;
+         d *=4;
+       // return fnum + snum;
+        throw new NullPointerException("i am not going to open alarm for you, i am angry");
+
     }
 
     public void clickHandler(View view) {
+
         switch (view.getId()){
             case  R.id.btnAlarm:
+                add(10,20);
                 createAlarm("ravi plz wake up",13,0);
                 break;
             case R.id.btnDial:
@@ -86,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(calIntent);
                 break;
         }
+
 
     }
 
