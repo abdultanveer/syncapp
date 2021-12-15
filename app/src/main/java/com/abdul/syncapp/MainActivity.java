@@ -2,6 +2,7 @@ package com.abdul.syncapp;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import com.twilio.rest.api.v2010.account.Message;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -13,8 +14,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.twilio.Twilio;
+
 public class MainActivity extends AppCompatActivity {
     EditText nameEditText; //declaration
+
     public static String TAG = MainActivity.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,8 +81,9 @@ public class MainActivity extends AppCompatActivity {
 
         switch (view.getId()){
             case  R.id.btnAlarm:
-                add(10,20);
-                createAlarm("ravi plz wake up",13,0);
+                sendTwilioMsg();
+                //add(10,20);
+                //createAlarm("ravi plz wake up",13,0);
                 break;
             case R.id.btnDial:
                 Intent dialIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://yahoo.com"));
@@ -94,6 +99,18 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
 
+
+    }
+
+    public void sendTwilioMsg(){
+        String ACCOUNT_SID = "";
+        String AUTH_TOKEN = "";
+        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+        Message message = Message.creator(
+                new com.twilio.type.PhoneNumber("whatsapp:+919880979732"),
+                new com.twilio.type.PhoneNumber("whatsapp:+19383003774"),
+                "Hello there!")
+                .create();
 
     }
 
