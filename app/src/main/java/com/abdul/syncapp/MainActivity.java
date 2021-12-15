@@ -74,12 +74,16 @@ public class MainActivity extends AppCompatActivity {
                 createAlarm("ravi plz wake up",13,0);
                 break;
             case R.id.btnDial:
-                Intent dialIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:9845098450"));
+                Intent dialIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://yahoo.com"));
                 startActivity(dialIntent);
                 break;
             case R.id.btnContact:
                 Intent hIntent = new Intent(this,HomeActivity.class);
                 startActivityForResult(hIntent,123);
+                break;
+            case R.id.btnCalendar:
+                Intent calIntent = new Intent("ineed.abduls.calendar");
+                startActivity(calIntent);
                 break;
         }
 
