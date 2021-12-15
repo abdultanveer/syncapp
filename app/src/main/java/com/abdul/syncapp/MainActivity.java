@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.AlarmClock;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -14,13 +15,43 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     EditText nameEditText; //declaration
-
+    public static String TAG = MainActivity.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main); //inflation - layout inflater
 
         nameEditText = findViewById(R.id.etName); //initialization
+
+        Log.i(TAG,"oncreate"); //i=info
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.w(TAG,"onstart"); //w=warning
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.e(TAG,"onresume"); //e= error
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.v(TAG,"onstop"); //verbose
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG,"ondestroy"); //d=debug
+
     }
 
     public void showToastMessage(View view) {
