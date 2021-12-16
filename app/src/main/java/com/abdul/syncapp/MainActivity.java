@@ -1,5 +1,6 @@
 package com.abdul.syncapp;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +9,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.AlarmClock;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -82,6 +86,32 @@ public class MainActivity extends AppCompatActivity
        // return fnum + snum;
         throw new NullPointerException("i am not going to open alarm for you, i am angry");
 
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        super.onCreateOptionsMenu(menu);
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.main_menu,menu);
+        return  true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+         super.onOptionsItemSelected(item);
+
+         switch (item.getItemId()){
+             case R.id.miSettings:
+                 Toast.makeText(this, "settings", Toast.LENGTH_SHORT).show();
+                 break;
+             case R.id.miLogout:
+                 Toast.makeText(this, "logout", Toast.LENGTH_SHORT).show();
+
+                 break;
+         }
+        return true;
     }
 
     public void clickHandler(View view) {
