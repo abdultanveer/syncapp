@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnFocusChangeListener {
     EditText nameEditText; //declaration
 
     public static String TAG = MainActivity.class.getSimpleName();
@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main); //inflation - layout inflater
 
         nameEditText = findViewById(R.id.etName); //initialization
+
+        nameEditText.setOnFocusChangeListener(this);
 
         Log.i(TAG,"oncreate"); //i=info
     }
@@ -130,6 +132,17 @@ public class MainActivity extends AppCompatActivity {
            String contact =  data.getExtras().getString("con");
             TextView tvMain = findViewById(R.id.tvMain);
             tvMain.setText(contact);
+        }
+    }
+
+    @Override
+    public void onFocusChange(View view, boolean isFocussed) {
+        if(isFocussed){
+            Toast.makeText(this, "focussed", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(this, "not focussed", Toast.LENGTH_SHORT).show();
+
         }
     }
 }
