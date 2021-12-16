@@ -1,6 +1,7 @@
 package com.abdul.syncapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -12,7 +13,9 @@ public class RecyclerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler);
         RecyclerView boardRecyclerView = findViewById(R.id.recyclerViewBoard);
-
+        boardRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         CountriesAdapter adapter = new CountriesAdapter(countries);
+
+        boardRecyclerView.setAdapter(adapter);
     }
 }

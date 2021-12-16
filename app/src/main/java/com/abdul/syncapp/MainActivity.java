@@ -2,7 +2,6 @@ package com.abdul.syncapp;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import com.twilio.rest.api.v2010.account.Message;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -14,7 +13,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.twilio.Twilio;
 
 public class MainActivity extends AppCompatActivity {
     EditText nameEditText; //declaration
