@@ -9,11 +9,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.AlarmClock;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -24,12 +26,16 @@ public class MainActivity extends AppCompatActivity
         implements View.OnFocusChangeListener, AdapterView.OnItemSelectedListener {
     EditText nameEditText; //declaration
     Spinner namesSpinner;
+    Button contactButton;
 
     public static String TAG = MainActivity.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main); //inflation - layout inflater
+
+        contactButton = findViewById(R.id.btnContact);
+        registerForContextMenu(contactButton);
 
         nameEditText = findViewById(R.id.etName); //initialization
 
@@ -108,6 +114,27 @@ public class MainActivity extends AppCompatActivity
                  break;
              case R.id.miLogout:
                  Toast.makeText(this, "logout", Toast.LENGTH_SHORT).show();
+
+                 break;
+         }
+        return true;
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        getMenuInflater().inflate(R.menu.main_context_menu,menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+         super.onContextItemSelected(item);
+         switch (item.getItemId()){
+             case R.id.miEdit:
+                 Toast.makeText(this, "edit", Toast.LENGTH_SHORT).show();
+                 break;
+             case R.id.miDelete:
+                 Toast.makeText(this, "delete", Toast.LENGTH_SHORT).show();
 
                  break;
          }
