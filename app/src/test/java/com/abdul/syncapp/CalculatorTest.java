@@ -2,7 +2,7 @@ package com.abdul.syncapp;
 
 import static org.junit.Assert.assertEquals;
 
-import junit.framework.TestCase;
+import com.abdul.syncapp.javabasics.Calculator;
 
 import org.junit.Test;
 

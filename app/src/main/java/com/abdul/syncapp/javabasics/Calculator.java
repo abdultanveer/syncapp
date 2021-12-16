@@ -1,4 +1,4 @@
-package com.abdul.syncapp;
+package com.abdul.syncapp.javabasics;
 
 
 public class Calculator {

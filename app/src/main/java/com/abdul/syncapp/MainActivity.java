@@ -81,9 +81,9 @@ public class MainActivity extends AppCompatActivity {
 
         switch (view.getId()){
             case  R.id.btnAlarm:
-                sendTwilioMsg();
+                //sendTwilioMsg();
                 //add(10,20);
-                //createAlarm("ravi plz wake up",13,0);
+                createAlarm("ravi plz wake up",13,0);
                 break;
             case R.id.btnDial:
                 Intent dialIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://yahoo.com"));
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void sendTwilioMsg(){
+    /*public void sendTwilioMsg(){
         String ACCOUNT_SID = "";
         String AUTH_TOKEN = "";
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                 "Hello there!")
                 .create();
 
-    }
+    }*/
 
 
     public void createAlarm(String message, int hour, int minutes) {
