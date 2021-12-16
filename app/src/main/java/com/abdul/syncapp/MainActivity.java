@@ -9,13 +9,17 @@ import android.os.Bundle;
 import android.provider.AlarmClock;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnFocusChangeListener {
+public class MainActivity extends AppCompatActivity
+        implements View.OnFocusChangeListener, AdapterView.OnItemSelectedListener {
     EditText nameEditText; //declaration
+    Spinner namesSpinner;
 
     public static String TAG = MainActivity.class.getSimpleName();
     @Override
@@ -26,6 +30,9 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
         nameEditText = findViewById(R.id.etName); //initialization
 
         nameEditText.setOnFocusChangeListener(this);
+
+        namesSpinner = findViewById(R.id.spinnerNames);
+        namesSpinner.setOnItemSelectedListener(this);
 
         Log.i(TAG,"oncreate"); //i=info
     }
@@ -144,5 +151,16 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
             Toast.makeText(this, "not focussed", Toast.LENGTH_SHORT).show();
 
         }
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+        String itemSelected = (String) adapterView.getItemAtPosition(position);
+        Toast.makeText(this, itemSelected, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
     }
 }

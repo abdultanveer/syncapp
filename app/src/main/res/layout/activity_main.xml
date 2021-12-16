@@ -95,13 +95,25 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:onClick="clickHandler"
         android:id="@+id/btnCalendar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         android:layout_marginEnd="13dp"
+        android:onClick="clickHandler"
         android:text="calendar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/button2" />
+
+    <Spinner
+        android:entries="@array/namez"
+        android:id="@+id/spinnerNames"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnContact" />
 </androidx.constraintlayout.widget.ConstraintLayout>
