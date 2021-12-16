@@ -12,5 +12,7 @@ public class RecyclerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler);
         RecyclerView boardRecyclerView = findViewById(R.id.recyclerViewBoard);
+
+        CountriesAdapter adapter = new CountriesAdapter(countries);
     }
 }
