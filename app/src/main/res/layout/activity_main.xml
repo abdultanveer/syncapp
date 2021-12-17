@@ -119,22 +119,46 @@
 
     <Button
         android:id="@+id/btnCommit"
-        android:onClick="handleDb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="27dp"
         android:layout_marginEnd="28dp"
+        android:onClick="handleDb"
         android:text="Commit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnCalendar" />
 
     <Button
-        android:onClick="handleDb"
         android:id="@+id/btnRetreive"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="7dp"
+        android:onClick="handleDb"
         android:text="retrieve"
         app:layout_constraintBaseline_toBaselineOf="@+id/btnContact"
         app:layout_constraintStart_toStartOf="@+id/spinnerNames" />
+
+    <Button
+        android:id="@+id/btnDelete"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="17dp"
+        android:onClick="handleDb"
+        android:text="delete"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerNames" />
+
+    <Button
+        android:id="@+id/btnUpdate"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="19dp"
+        android:onClick="handleDb"
+        android:text="update"
+        app:layout_constraintStart_toStartOf="@+id/spinnerNames"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerNames" />
 </androidx.constraintlayout.widget.ConstraintLayout>

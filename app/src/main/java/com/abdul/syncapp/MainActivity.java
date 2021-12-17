@@ -267,7 +267,21 @@ public class MainActivity extends AppCompatActivity
             case R.id.btnRetreive:
                 retreiveDb();
                 break;
+            case R.id.btnDelete:
+                deleteRow();
+                break;
+            case R.id.btnUpdate:
+                updateRow();
+                break;
         }
+    }
+
+    private void updateRow() {
+        dao.updatingRow();
+    }
+
+    private void deleteRow() {
+        dao.deleteRow();
     }
 
     private void retreiveDb() {

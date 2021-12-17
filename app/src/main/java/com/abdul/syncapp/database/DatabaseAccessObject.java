@@ -42,7 +42,30 @@ public class DatabaseAccessObject {
 
         return title +"\n"+ subTitle;
     }
-    public void updatingRow(){}
-    public void deleteRow(){}
+    public void updatingRow(){
+
+// New value for one column
+        String title = "newsync";
+        ContentValues values = new ContentValues();
+        values.put(FeedEntry.COLUMN_NAME_TITLE, title);
+
+// Which row to update, based on the title
+        String selection = FeedEntry.COLUMN_NAME_TITLE + " LIKE ?";
+        String[] selectionArgs = { "synchronouss" };
+
+        int count = database.update(
+                FeedEntry.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+    }
+    public void deleteRow(){
+        // Define 'where' part of query.
+        String selection = FeedEntry.COLUMN_NAME_TITLE + " LIKE ?";
+// Specify arguments in placeholder order.
+        String[] selectionArgs = { "first" };
+// Issue SQL statement.
+        int deletedRows = database.delete(FeedEntry.TABLE_NAME, selection, selectionArgs);
+    }
 
 }
