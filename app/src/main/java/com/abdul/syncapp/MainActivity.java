@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.AlarmClock;
@@ -57,7 +58,35 @@ public class MainActivity extends AppCompatActivity
     protected void onResume() {
         super.onResume();
         Log.e(TAG,"onresume"); //e= error
+        restoreData();
+    }
 
+    private void restoreData() {
+        //open the file
+        SharedPreferences preferences = getSharedPreferences("synchronouss_prefs",MODE_PRIVATE);
+        //read from the file
+        String name = preferences.getString("nkey","");
+        //set the values onto the edittext
+        nameEditText.setText(name);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        storeData();
+    }
+
+    private void storeData() {
+        //get the data from edittexts
+        String name = nameEditText.getText().toString();
+        //create the file
+        SharedPreferences preferences = getSharedPreferences("synchronouss_prefs",MODE_PRIVATE);
+        //open the file
+        SharedPreferences.Editor editor = preferences.edit();
+        //write to the file
+        editor.putString("nkey", name);
+        //save the file
+        editor.apply();
     }
 
     @Override
