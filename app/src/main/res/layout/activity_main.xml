@@ -19,14 +19,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/etPaswd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="23dp"
         android:ems="10"
         android:hint="@string/enter_pwd"
-        android:inputType="textPassword"
+        android:inputType="text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etName" />
 
@@ -39,7 +39,7 @@
         android:onClick="showToastMessage"
         android:text="login"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/etPaswd" />
 
     <Button
         android:id="@+id/button2"
@@ -106,14 +106,35 @@
         app:layout_constraintTop_toTopOf="@+id/button2" />
 
     <Spinner
-        android:entries="@array/namez"
         android:id="@+id/spinnerNames"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="1dp"
+        android:entries="@array/namez"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnContact" />
+
+    <Button
+        android:id="@+id/btnCommit"
+        android:onClick="handleDb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="28dp"
+        android:text="Commit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCalendar" />
+
+    <Button
+        android:onClick="handleDb"
+        android:id="@+id/btnRetreive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:text="retrieve"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnContact"
+        app:layout_constraintStart_toStartOf="@+id/spinnerNames" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,12 +22,17 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.abdul.syncapp.database.DatabaseAccessObject;
+
 
 public class MainActivity extends AppCompatActivity
         implements View.OnFocusChangeListener, AdapterView.OnItemSelectedListener {
     EditText nameEditText; //declaration
+    EditText pwdEditText;
+
     Spinner namesSpinner;
     Button contactButton;
+    DatabaseAccessObject dao;
 
     public static String TAG = MainActivity.class.getSimpleName();
     @Override
@@ -39,11 +44,14 @@ public class MainActivity extends AppCompatActivity
         registerForContextMenu(contactButton);
 
         nameEditText = findViewById(R.id.etName); //initialization
-
+        pwdEditText = findViewById(R.id.etPaswd);
         nameEditText.setOnFocusChangeListener(this);
 
         namesSpinner = findViewById(R.id.spinnerNames);
         namesSpinner.setOnItemSelectedListener(this);
+
+        dao = new DatabaseAccessObject(this);
+        dao.openDb();
 
         Log.i(TAG,"oncreate"); //i=info
     }
@@ -248,5 +256,30 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
+    }
+
+    public void handleDb(View view) {
+        switch (view.getId()){
+            case R.id.btnCommit:
+
+                commitDb();
+                break;
+            case R.id.btnRetreive:
+                retreiveDb();
+                break;
+        }
+    }
+
+    private void retreiveDb() {
+    }
+
+
+    private void commitDb() {
+        String title = nameEditText.getText().toString();
+        String subTitle = pwdEditText.getText().toString();
+        dao.createRow(title,subTitle);
+
+        nameEditText.setText("");
+        pwdEditText.setText("");
     }
 }
