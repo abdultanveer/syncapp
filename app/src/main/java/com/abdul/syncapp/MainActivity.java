@@ -271,6 +271,9 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void retreiveDb() {
+        TextView tvMain = findViewById(R.id.tvMain);
+       String result = dao.readRow();
+       tvMain.setText(result);
     }
 
 
